@@ -7,6 +7,11 @@
 let video;
 // For displaying the label
 let label = "waiting...";
+let label2 = "waiting...";
+
+let ges = "waiting...";
+let gesCon = "waiting...";
+
 // The classifier
 let classifier;
 let modelURL = '/model/';
@@ -38,11 +43,14 @@ function draw() {
   image(video, 0, 0);
 
   // STEP 4: Draw the label
-  textSize(32);
+  textSize(10);
   textAlign(CENTER, CENTER);
   fill(255);
   text(label, width / 2, height - 16);
-  text(con, width / 2, height - 14);
+ text(label2+"", width / 2, height - 30);
+
+ text(ges+" Guess", width / 2, height - 40);
+ text(gesCon+"", width / 2, height - 50);
 
   // Pick an emoji, the "default" is train
   // let emoji = "🚂";
@@ -69,7 +77,11 @@ function gotResults(error, results) {
   // Store the label and classify again!
   label = results[0].label;
   label2 = results[0].confidence;
-  con = results[1].label;
-  con2 = results[1].confidence;
+
+  ges = results[1].label;
+  gesCon = results[1].confidence;
+  print(label2);
+  // con = results[1].label;
+  // con2 = results[1].confidence;
   classifyVideo();
 }
