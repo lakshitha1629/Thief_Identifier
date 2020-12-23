@@ -49,8 +49,8 @@ function draw() {
   text(label, width / 2, height - 16);
  text(label2+"", width / 2, height - 30);
 
- text(ges+" Guess", width / 2, height - 40);
- text(gesCon+"", width / 2, height - 50);
+//  text(ges+" Guess", width / 2, height - 40);
+//  text(gesCon+"", width / 2, height - 50);
 
   // Pick an emoji, the "default" is train
   // let emoji = "🚂";
