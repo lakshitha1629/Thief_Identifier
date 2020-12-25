@@ -30,6 +30,13 @@ if (!isLoggedIn()) {
     <!-- End layout styles -->
     <link rel="shortcut icon" href="assets/images/favicon.png" />
 
+    <!-- Detector styles -->
+    <script src="p5.js"></script>
+    <script src="p5.dom.min.js"></script>
+    <script src="p5.sound.min.js"></script>
+    <script src="ml5.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
 </head>
 
 <body>
@@ -217,18 +224,20 @@ if (!isLoggedIn()) {
                             </div>
                         </div>
                     </div>
+
                     <div class="row">
+                        <!-- Detector Part -->
                         <div class="col-md-8 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
                                     <div class="d-flex flex-row justify-content-between">
-                                        <h4 class="card-title mb-1">Open Projects</h4>
+                                        <h4 class="card-title mb-1">Criminal Detector</h4>
                                         <p class="text-muted mb-1">Your data status</p>
                                     </div>
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="preview-list">
-
+                                                <script src="sketch.js"></script>
                                             </div>
                                         </div>
                                     </div>
