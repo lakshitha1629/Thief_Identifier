@@ -19,8 +19,8 @@
         <!-- partial:partials/_sidebar.html -->
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
             <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-                <a class="sidebar-brand brand-logo" href=""><img src="assets/images/logo.svg" alt="logo" /></a>
-                <a class="sidebar-brand brand-logo-mini" href=""><img src="assets/images/logo-mini.svg" alt="logo" /></a>
+                <a class="sidebar-brand brand-logo" href=""><img src="assets/images/logo.svg" alt="logo" style="width: auto;" /></a>
+                <a class="sidebar-brand brand-logo-mini" href=""><img src="assets/images/logo-mini.svg" alt="logo" style="width: auto;" /></a>
             </div>
             <ul class="nav">
                 <li class="nav-item profile">
@@ -108,16 +108,72 @@
             <div class="main-panel">
                 <div class="content-wrapper">
                     <div class="page-header">
-                        <h3 class="page-title"> Basic Tables </h3>
+                        <h3 class="page-title"> Criminal Details </h3>
                     </div>
                     <div class="row">
                         <div class="col-lg-12 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Striped Table</h4>
-                                    <p class="card-description"> Add class <code>.table-striped</code>
+                                    <h4 class="card-title">Criminal Profile Details Table</h4>
+                                    <!-- <p class="card-description"><code>When a man is denied the right to live the life he believes in, he has no choice but to become an outlaw.</code> -->
                                     </p>
                                     <div class="table-responsive">
+
+                                        <?php
+                                        require_once('connect.php');
+
+                                        $qry3 = "SELECT * FROM `criminal_profile`";
+
+                                        echo '<table class="table" id="dataTable" width="100%" cellspacing="0">
+                                                <thead>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th>Full Name</th>
+                                                        <th>Nickname</th>
+                                                        <th>DOB</th>
+                                                        <th>NIC</th>
+                                                        <th>Phone Number</th>
+                                                        <th>Criminal Case</th>
+                                                        <th>Criminal Level</th>
+                                                    </tr>
+                                                </thead>';
+
+                                        if ($res = $con->query($qry3)) {
+                                            while ($row = $res->fetch_assoc()) {
+                                                $field1name = $row["FullName"];
+                                                $field2name = $row["Nickname"];
+                                                $field3name = $row["DOB"];
+                                                $field4name = $row["NIC"];
+                                                $field5name = $row["ContactNumber"];
+                                                $field6name = $row["CriminalCase"];
+                                                $field7name = $row["CriminalLevel"];
+
+                                                $image = $row["image"];
+
+                                                if ($field7name == "High") {
+                                                    $CriminalLevel = "badge-danger";
+                                                } elseif ($field7name == "Medium") {
+                                                    $CriminalLevel = "badge-warning";
+                                                } else {
+                                                    $CriminalLevel = "badge-info";
+                                                }
+
+                                                echo "<tr> 
+                                                        <td class='py-1'><img src='" . $image . "' alt='image'/></td> 
+                                                        <td>" . $field1name . "</td> 
+                                                        <td>" . $field2name . "</td> 
+                                                        <td>" . $field3name . "</td> 
+                                                        <td>" . $field4name . "</td> 
+                                                        <td>" . $field5name . "</td> 
+                                                        <td>" . $field6name . "</td> 
+                                                        <td><label class='badge " . $CriminalLevel . "'>" . $field7name . "</label></td> 
+                                                    </tr>";
+                                            }
+
+                                            $res->free();
+                                        }
+                                        ?>
+                                        <!--                                         
                                         <table class="table table-striped">
                                             <thead>
                                                 <tr>
@@ -155,46 +211,8 @@
                                                     <td> $ 77.99 </td>
                                                     <td> May 15, 2015 </td>
                                                 </tr>
-                                                <tr>
-                                                    <td class="py-1">
-                                                        <img src="assets/images/faces-clipart/pic-1.png" alt="image" />
-                                                    </td>
-                                                    <td> Edward </td>
-                                                    <td>
-                                                        <div class="progress">
-                                                            <div class="progress-bar bg-danger" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
-                                                        </div>
-                                                    </td>
-                                                    <td> $ 160.25 </td>
-                                                    <td> May 03, 2015 </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="py-1">
-                                                        <img src="assets/images/faces-clipart/pic-2.png" alt="image" />
-                                                    </td>
-                                                    <td> John Doe </td>
-                                                    <td>
-                                                        <div class="progress">
-                                                            <div class="progress-bar bg-info" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                                                        </div>
-                                                    </td>
-                                                    <td> $ 123.21 </td>
-                                                    <td> April 05, 2015 </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="py-1">
-                                                        <img src="assets/images/faces-clipart/pic-3.png" alt="image" />
-                                                    </td>
-                                                    <td> Henry Tom </td>
-                                                    <td>
-                                                        <div class="progress">
-                                                            <div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                                                        </div>
-                                                    </td>
-                                                    <td> $ 150.00 </td>
-                                                    <td> June 16, 2015 </td>
-                                                </tr>
                                             </tbody>
+                                        </table> -->
                                         </table>
                                     </div>
                                 </div>
