@@ -47,7 +47,7 @@ function draw() {
   textAlign(CENTER, CENTER);
   fill(255);
   text(label, width / 2, height - 16);
- text(label2+"", width / 2, height - 30);
+  text(label2+"", width / 2, height - 30);
 
 //  text(ges+" Guess", width / 2, height - 40);
 //  text(gesCon+"", width / 2, height - 50);
