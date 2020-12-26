@@ -14,7 +14,7 @@ let gesCon = "waiting...";
 
 // The classifier
 let classifier;
-let modelURL = '/model/';
+let modelURL = 'model/';
 
 // STEP 1: Load the model!
 function preload() {
