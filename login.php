@@ -1,3 +1,7 @@
+<?php
+@ob_start();
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,8 +50,6 @@
                                     <button id="but_submit" name="login_btn" type="submit" class="btn btn-primary btn-block enter-btn">Login</button>
                                     <?php
                                     error_reporting(E_ERROR | E_PARSE);
-
-                                    session_start();
 
                                     require_once('connect.php');
 

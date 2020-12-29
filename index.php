@@ -1,3 +1,7 @@
+<?php
+@ob_start();
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,8 +51,6 @@
                   <?php
                   error_reporting(E_ERROR | E_PARSE);
 
-                  session_start();
-
                   require_once('connect.php');
 
                   // call the login() function if register_btn is clicked
@@ -88,6 +90,12 @@
                         $_SESSION['email'] = $logged_in_user['email'];
                         $_SESSION['user'] = $logged_in_user;
                         $_SESSION['user_type'] = "Admin";
+                        $_SESSION['success']  = "You are now logged in";
+                        header('location: dashboard.php');
+                      } else if ($logged_in_user['user_type'] == '2') {
+                        $_SESSION['user_name'] = $logged_in_user['user_name'];
+                        $_SESSION['user'] = $logged_in_user;
+                        $_SESSION['user_type'] = "Officer";
                         $_SESSION['success']  = "You are now logged in";
                         header('location: dashboard.php');
                       } else {

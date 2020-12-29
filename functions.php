@@ -43,6 +43,12 @@ function login()
             $_SESSION['user_type'] = "Admin";
             $_SESSION['success']  = "You are now logged in";
             header('location: dashboard.php');
+        } else if ($logged_in_user['user_type'] == '2') {
+            $_SESSION['user_name'] = $logged_in_user['user_name'];
+            $_SESSION['user'] = $logged_in_user;
+            $_SESSION['user_type'] = "Officer";
+            $_SESSION['success']  = "You are now logged in";
+            header('location: dashboard.php');
         } else {
             echo "Undefined User";
         }
