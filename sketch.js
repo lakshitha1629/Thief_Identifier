@@ -23,7 +23,15 @@ function preload() {
 
 
 function setup() {
-  createCanvas(640, 520);
+  // createCanvas(640, 520);
+
+  var cnv = createCanvas(650, 480);
+  // var x = (windowWidth - width) / 2;
+  // var y = (windowHeight - height) / 2;
+  // cnv.position(x, y);
+  cnv.parent('sketchholder');
+  background(255, 0, 200);
+
   // Create the video
   video = createCapture(VIDEO);
   video.hide();
