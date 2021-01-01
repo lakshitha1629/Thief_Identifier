@@ -82,9 +82,11 @@ let a,b,c,d,e,no = 0;
     //   emoji = "Normal Person";
     // }
   }
-
+  console.log(a);
+  console.log(b);
   let arr = [a,b,c,d,e,no]; 
   let z = max(arr); 
+  console.log(z);
 
   if (z == a) {
     emoji = "Lahiru - Thief";
