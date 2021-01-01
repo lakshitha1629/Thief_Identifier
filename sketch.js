@@ -83,8 +83,8 @@ let a,b,c,d,e,no = 0;
     // }
   }
 
-  let arr = [a,b,c,d,e,no]; 
-  let z = max(arr); 
+  // let arr = [a,b,c,d,e,no]; 
+  let z = max(a,b,c,d,e,no); 
 
   if (z == a) {
     emoji = "Lahiru - Thief";
@@ -96,7 +96,7 @@ let a,b,c,d,e,no = 0;
     emoji = "Nishan - Thief";
   }else if (z == e) {
     emoji = "Tasil - Thief";
-  }else if (z == n0) {
+  }else if (z == no) {
     emoji = "Thisal - Normal Person";
   }else{
     emoji = "Normal Person";
