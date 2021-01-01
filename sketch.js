@@ -83,8 +83,8 @@ let a,b,c,d,e,no = 0;
     // }
   }
 
-  // let arr = [a,b,c,d,e,no]; 
-  let z = max(a,b,c,d,e,no); 
+  let arr = [a,b,c,d,e,no]; 
+  let z = max(arr); 
 
   if (z == a) {
     emoji = "Lahiru - Thief";
