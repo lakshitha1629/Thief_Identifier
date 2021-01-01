@@ -62,9 +62,9 @@ function draw() {
 
   // Pick an emoji, the "default" is train
   // let emoji = "🚂";
-let a,b,c,d,e,no = 0;
+  let a,b,c,d,e,no = 0;
 
-  for (label = 0; label < 100; label++) {
+  for (let label1 = 0; label1 < 100; label1++) {
     if (label == "Lahiru") {
       a++;
     } else if (label == "Kasun") {
@@ -82,8 +82,6 @@ let a,b,c,d,e,no = 0;
     //   emoji = "Normal Person";
     // }
   }
-  console.log(a);
-  console.log(b);
   let arr = [a,b,c,d,e,no]; 
   let z = max(arr); 
   console.log(z);
