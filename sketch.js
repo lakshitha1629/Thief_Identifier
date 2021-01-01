@@ -62,17 +62,25 @@ function draw() {
 
   // Pick an emoji, the "default" is train
   // let emoji = "🚂";
-  // if (label == "Rainbow") {
-  //   emoji = "🌈";
-  // } else if (label == "Unicorn") {
-  //   emoji = "🦄";
-  // } else if (label == "Ukulele") {
-  //   emoji = "🎸";
-  // }
+  if (label == "Lahiru") {
+    emoji = "Thief";
+  } else if (label == "kasun") {
+    emoji = "Thief";
+  } else if (label == "Namal") {
+    emoji = "Thief";
+  }else if (label == "Nishan") {
+    emoji = "Thief";
+  }else if (label == "Tasil") {
+    emoji = "Thief";
+  }else if (label == "Thisal") {
+    emoji = "Normal Person";
+  }else{
+    emoji = "Normal Person";
+  }
 
   // Draw the emoji
-  textSize(256);
- // text(emoji, width / 2, height / 2);
+  textSize(50);
+  text(emoji, width / 2, height / 2);
 }
 
 // STEP 3: Get the classification!
