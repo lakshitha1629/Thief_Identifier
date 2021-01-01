@@ -62,64 +62,45 @@ function draw() {
 
   // Pick an emoji, the "default" is train
   // let emoji = "🚂";
-  
-  l,ka,n,ni,ta,th = 0
+let a,b,c,d,e,no = 0;
 
-  for (let label = 0; label < 100; label++) {
-    // max(label)
-   
+  for (label = 0; label < 100; label++) {
     if (label == "Lahiru") {
-      // emoji = "Thief";
-      l++;
-
+      a++;
     } else if (label == "Kasun") {
-      // emoji = "Thief";
-      ka++;
-
+      b++;
     } else if (label == "Namal") {
-      // emoji = "Thief";
-      n++;
-
+      c++;
     }else if (label == "Nishan") {
-      // emoji = "Thief";
-      ni++;
-
+      d++;
     }else if (label == "Tasil") {
-      // emoji = "Thief";
-      ta++;
-
+      e++;
     }else if (label == "Thisal") {
-      // emoji = "Normal Person";
-      th++;
-
-    }else{
-      // emoji = "Normal Person";
+      no++;
     }
-
+    // else{
+    //   emoji = "Normal Person";
+    // }
   }
-max_val= max(l,ka,n,ni,ta,th);
 
-if (max_val == l) {
-  emoji = "Thief";
+  let arr = [a,b,c,d,e,no]; 
+  let z = max(arr); 
 
-} else if (max_val == ka) {
-  emoji = "Thief";
-
-} else if (max_val == n) {
-  emoji = "Thief";
-
-}else if (max_val == ni) {
-  emoji = "Thief";
-
-}else if (max_val == ta) {
-  emoji = "Thief";
-
-}else if (max_val == th) {
-  emoji = "Normal Person";
-
-}else{
-  emoji = "Normal Person";
-}
+  if (z == a) {
+    emoji = "Lahiru - Thief";
+  } else if (z == b) {
+    emoji = "Kasun - Thief";
+  } else if (z == c) {
+    emoji = "Namal - Thief";
+  }else if (z == d) {
+    emoji = "Nishan - Thief";
+  }else if (z == e) {
+    emoji = "Tasil - Thief";
+  }else if (z == n0) {
+    emoji = "Thisal - Normal Person";
+  }else{
+    emoji = "Normal Person";
+  }
 
   // Draw the emoji
   textSize(50);
