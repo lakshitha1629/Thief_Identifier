@@ -62,10 +62,15 @@ function draw() {
 
   // Pick an emoji, the "default" is train
   // let emoji = "🚂";
-  let a,b,c,d,e,no = 0;
-  console.log(no);
+  let a = 0;
+  let b = 0;
+  let c = 0;
+  let d = 0;
+  let e = 0;
+  let no = 0;
+  // delayTime(10);
 
-  for (let label1 = 0; label1 < 100; label1++) {
+  for (let label1 = 0; label1 < 8000; label1++) {
     if (label == "Lahiru") {
       a++;
     } else if (label == "Kasun") {
@@ -83,8 +88,7 @@ function draw() {
     //   emoji = "Normal Person";
     // }
   }
-  console.log(a);
-  console.log(b);
+
   let arr = [a,b,c,d,e,no]; 
   let z = max(arr); 
   console.log(z);
@@ -101,7 +105,8 @@ function draw() {
     emoji = "Tasil - Thief";
   }else if (z == no) {
     emoji = "Thisal - Normal Person";
-  }else{
+  }
+  else{
     emoji = "Normal Person";
   }
 
