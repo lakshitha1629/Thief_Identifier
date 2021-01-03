@@ -1,7 +1,6 @@
-// Teachable Machine
-// The Coding Train / Daniel Shiffman
-// https://thecodingtrain.com/TeachableMachine/1-teachable-machine.html
-// https://editor.p5js.org/codingtrain/sketches/PoZXqbu4v
+// ml5 Face Detection Model
+let faceapi;
+let detections = [];
 
 // The video
 let video;
@@ -14,13 +13,12 @@ let gesCon = "waiting...";
 
 // The classifier
 let classifier;
-let modelURL = 'model/';
+let modelURL = "model/";
 
 // STEP 1: Load the model!
 function preload() {
-  classifier = ml5.imageClassifier(modelURL + 'model.json');
+  classifier = ml5.imageClassifier(modelURL + "model.json");
 }
-
 
 function setup() {
   // createCanvas(640, 520);
@@ -29,14 +27,37 @@ function setup() {
   // var x = (windowWidth - width) / 2;
   // var y = (windowHeight - height) / 2;
   // cnv.position(x, y);
-  cnv.parent('sketchholder');
+  cnv.parent("sketchholder");
   background(255, 0, 200);
 
   // Create the video
   video = createCapture(VIDEO);
+  video.size(width, height);
   video.hide();
   // STEP 2: Start classifying
+
+  const faceOptions = {
+    withLandmarks: false,
+    withExpressions: false,
+    withDescriptors: false,
+  };
+  faceapi = ml5.faceApi(video, faceOptions, faceReady);
   classifyVideo();
+}
+
+// Start detecting faces
+function faceReady() {
+  faceapi.detect(gotFaces);
+}
+
+// Got faces
+function gotFaces(error, result) {
+  if (error) {
+    console.log(error);
+    return;
+  }
+  detections = result;
+  faceapi.detect(gotFaces);
 }
 
 // STEP 2 classify the videeo!
@@ -46,73 +67,79 @@ function classifyVideo() {
 
 function draw() {
   background(0);
-
-  // Draw the video
   image(video, 0, 0);
 
-  // STEP 4: Draw the label
-  textSize(10);
-  textAlign(CENTER, CENTER);
-  fill(255);
-  text(label, width / 2, height - 16);
-  text(label2+"", width / 2, height - 30);
+  // Just look at the first face and draw all the points
+  if (detections.length > 0) {
+    console.log("detected face");
+    console.log(label2);
 
-//  text(ges+" Guess", width / 2, height - 40);
-//  text(gesCon+"", width / 2, height - 50);
+    if (label2 > 0.8) {
+      // STEP 4: Draw the label
+      textSize(10);
+      textAlign(CENTER, CENTER);
+      fill(255);
+      text(label, width / 2, height - 16);
+      text(label2 + "", width / 2, height - 30);
 
-  // Pick an emoji, the "default" is train
-  // let emoji = "🚂";
-  let a = 0;
-  let b = 0;
-  let c = 0;
-  let d = 0;
-  let e = 0;
-  let no = 0;
-  // delayTime(10);
+      // Pick an emoji, the "default" is train
+      let a = 0;
+      let b = 0;
+      let c = 0;
+      let d = 0;
+      let e = 0;
+      let no = 0;
 
-  for (let label1 = 0; label1 < 8000; label1++) {
-    if (label == "Lahiru") {
-      a++;
-    } else if (label == "Kasun") {
-      b++;
-    } else if (label == "Namal") {
-      c++;
-    }else if (label == "Nishan") {
-      d++;
-    }else if (label == "Tasil") {
-      e++;
-    }else if (label == "Thisal") {
-      no++;
+      for (let label1 = 0; label1 < 8000; label1++) {
+        if (label == "Lahiru") {
+          a++;
+        } else if (label == "Kasun") {
+          b++;
+        } else if (label == "Namal") {
+          c++;
+        } else if (label == "Nishan") {
+          d++;
+        } else if (label == "Tasil") {
+          e++;
+        } else if (label == "Thisal") {
+          no++;
+        }
+        // else{
+        //   emoji = "Normal Person";
+        // }
+      }
+
+      emoji = "Normal Person";
+
+      let arr = [a, b, c, d, e, no];
+      let z = max(arr);
+
+      if (z == a) {
+        emoji = "Lahiru - Thief";
+      } else if (z == b) {
+        emoji = "Kasun - Thief";
+      } else if (z == c) {
+        emoji = "Namal - Thief";
+      } else if (z == d) {
+        emoji = "Nishan - Thief";
+      } else if (z == e) {
+        emoji = "Tasil - Thief";
+      } else if (z == no) {
+        emoji = "Thisal - Normal Person";
+      } else {
+        emoji = "Normal Person";
+      }
+
+      // Draw the emoji
+      textSize(50);
+      text(emoji, width / 2, height / 2);
+    } else {
+      console.log("Low Accuracy");
     }
-    // else{
-    //   emoji = "Normal Person";
-    // }
+  } else {
+    console.log("NO face");
   }
-
-  let arr = [a,b,c,d,e,no]; 
-  let z = max(arr); 
-  console.log(z);
-
-  if (z == a) {
-    emoji = "Lahiru - Thief";
-  } else if (z == b) {
-    emoji = "Kasun - Thief";
-  } else if (z == c) {
-    emoji = "Namal - Thief";
-  }else if (z == d) {
-    emoji = "Nishan - Thief";
-  }else if (z == e) {
-    emoji = "Tasil - Thief";
-  }else if (z == no) {
-    emoji = "Thisal - Normal Person";
-  }
-  else{
-    emoji = "Normal Person";
-  }
-
-  // Draw the emoji
-  textSize(50);
-  text(emoji, width / 2, height / 2);
+  // Draw the video
 }
 
 // STEP 3: Get the classification!
