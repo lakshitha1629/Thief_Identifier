@@ -177,8 +177,7 @@ if (!isLoggedIn()) {
                                         <?php
                                         require_once('connect.php');
 
-                                        $qry3 = "SELECT * FROM `criminal_profile` INNER JOIN `criminal_history` ON `criminal_profile`.`id` = `criminal_history`.`pro_id` LIMIT 2
-                                        ";
+                                        $qry3 = "SELECT * FROM `criminal_profile` INNER JOIN `criminal_history` ON `criminal_profile`.`id` = `criminal_history`.`pro_id` ORDER BY `criminal_history`.`pro_id` DESC LIMIT 2";
 
                                         if ($res = $con->query($qry3)) {
                                             while ($row = $res->fetch_assoc()) {
