@@ -18,8 +18,6 @@ function preload() {
 }
 
 function setup() {
-  // createCanvas(640, 520);
-
   var cnv = createCanvas(650, 480);
   // var x = (windowWidth - width) / 2;
   // var y = (windowHeight - height) / 2;
@@ -64,10 +62,18 @@ function classifyVideo() {
 
 function draw() {
   background(0);
+
+  fill(255, 0, 0);
+  circle(30, 30, 20);
   image(video, 0, 0);
+
+  fill(255, 0, 0);
+  circle(30, 30, 20);
 
   // Just look at the first face and draw all the points
   if (detections.length > 0) {
+    fill(0, 255, 0);
+    circle(30, 30, 20);
     console.log("detected face");
     console.log(label2);
 
