@@ -20,7 +20,7 @@ if (isset($_POST['id'])) {
         $result = mysqli_query($con, $qry1)
             or die('Error: ' . mysqli_error($con));
 
-        $response = "Thief Detected";
+        $response = "Thief Detected.<br> <strong style='font-size: 20px;'>Parking Fee Rs " . $FullName . "</strong>";
     } else {
         $response = "Normal Person";
     }

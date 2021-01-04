@@ -40,47 +40,57 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 
   <script type="text/javascript">
-    $("#demo").on("input", function (content) {
-      $.ajax({
-        url: "addDb.php",
-        type: "post",
-        dataType: "json",
-        data: {
-          id: content,
-        },
-        success: function (data) {
-          $.confirm({
-            title: "Success!",
-            content: data,
-            type: "green",
-            typeAnimated: true,
-            autoClose: "tryAgain|15000",
-            buttons: {
-              tryAgain: {
-                text: "OK",
-                btnClass: "btn-green",
-                action: function () {},
+    $(document).ready(function () {
+      $("input").change(function () {
+        alert("The text has been changed.");
+
+        $.ajax({
+          url: "addDb.php",
+          type: "post",
+          dataType: "json",
+          data: {
+            id: $("#demo").val(),
+          },
+          success: function (data) {
+            $.confirm({
+              title: "Success!",
+              content: data,
+              type: "green",
+              typeAnimated: true,
+              autoClose: "tryAgain|15000",
+              buttons: {
+                tryAgain: {
+                  text: "OK",
+                  btnClass: "btn-green",
+                  action: function () {
+                    location.reload();
+                  },
+                },
               },
-            },
-          });
-        },
-        error: function (data) {
-          $.confirm({
-            title: "Encountered an error!",
-            content: "Something went downhill, this may be serious",
-            type: "red",
-            typeAnimated: true,
-            autoClose: "tryAgain|10000",
-            buttons: {
-              tryAgain: {
-                text: "Try again",
-                btnClass: "btn-red",
-                action: function () {},
+            });
+          },
+          error: function (data) {
+            $.confirm({
+              title: "Encountered an error!",
+              content: "Something went downhill, this may be serious",
+              type: "red",
+              typeAnimated: true,
+              autoClose: "tryAgain|10000",
+              buttons: {
+                tryAgain: {
+                  text: "Try again",
+                  btnClass: "btn-red",
+                  action: function () {
+                    location.reload();
+                  },
+                },
+                close: function () {
+                  location.reload();
+                },
               },
-              close: function () {},
-            },
-          });
-        },
+            });
+          },
+        });
       });
     });
   </script>
