@@ -74,7 +74,7 @@ function draw() {
     console.log("detected face");
     console.log(label2);
 
-    if (label2 > 0.8) {
+    if (label2 > 0.9) {
       // STEP 4: Draw the label
       textSize(10);
       textAlign(CENTER, CENTER);
