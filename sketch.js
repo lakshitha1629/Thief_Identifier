@@ -8,9 +8,6 @@ let video;
 let label = "waiting...";
 let label2 = "waiting...";
 
-let ges = "waiting...";
-let gesCon = "waiting...";
-
 // The classifier
 let classifier;
 let modelURL = "model/";
@@ -34,8 +31,8 @@ function setup() {
   video = createCapture(VIDEO);
   video.size(width, height);
   video.hide();
-  // STEP 2: Start classifying
 
+  // STEP 2: Start classifying
   const faceOptions = {
     withLandmarks: false,
     withExpressions: false,
@@ -74,7 +71,7 @@ function draw() {
     console.log("detected face");
     console.log(label2);
 
-    if (label2 > 0.9) {
+    if (label2 > 0.7) {
       // STEP 4: Draw the label
       textSize(10);
       textAlign(CENTER, CENTER);
@@ -113,24 +110,32 @@ function draw() {
 
       let arr = [a, b, c, d, e, no];
       let z = max(arr);
+      var x = "Normal Person";
 
       if (z == a) {
         emoji = "Lahiru - Thief";
+        x = "Lakshitha";
       } else if (z == b) {
         emoji = "Kasun - Thief";
+        x = "Kasun";
       } else if (z == c) {
         emoji = "Namal - Thief";
+        x = "Namal";
       } else if (z == d) {
         emoji = "Nishan - Thief";
+        x = "Nishan";
       } else if (z == e) {
         emoji = "Tasil - Thief";
+        x = "Tasil";
       } else if (z == no) {
         emoji = "Thisal - Normal Person";
+        x = "Thisal";
       } else {
         emoji = "Normal Person";
       }
 
       // Draw the emoji
+      document.getElementById("demo").value = x;
       textSize(50);
       text(emoji, width / 2, height / 2);
     } else {
@@ -152,11 +157,5 @@ function gotResults(error, results) {
   // Store the label and classify again!
   label = results[0].label;
   label2 = results[0].confidence;
-
-  ges = results[1].label;
-  gesCon = results[1].confidence;
-  print(label2);
-  // con = results[1].label;
-  // con2 = results[1].confidence;
   classifyVideo();
 }
