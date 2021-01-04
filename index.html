@@ -14,7 +14,7 @@
       </div>
     </div>
     <!-- <input type="text" id="demo" value="" /> -->
-    <input type="text" id="demo" value="" onchange="updateInput(this.value)" />
+    <input type="text" id="demo" value="" />
   </body>
 
   <!-- JavaScript-->
@@ -40,8 +40,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 
   <script type="text/javascript">
-    function updateInput(content) {
-      document.getElementById("demo").value = content;
+    $("#demo").on("input", function (content) {
       $.ajax({
         url: "addDb.php",
         type: "post",
@@ -83,6 +82,6 @@
           });
         },
       });
-    }
+    });
   </script>
 </html>
