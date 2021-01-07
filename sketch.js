@@ -134,8 +134,8 @@ function draw() {
         emoji = "Tasil - Thief";
         x = "Tasil";
       } else if (z == no) {
-        emoji = "Thisal - Normal Person";
-        x = "Thisal";
+        emoji = "Normal Person";
+        x = "";
       } else {
         emoji = "Normal Person";
       }

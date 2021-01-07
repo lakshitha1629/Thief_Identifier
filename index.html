@@ -14,7 +14,7 @@
       </div>
     </div>
     <!-- <input type="text" id="demo" value="" /> -->
-    <input type="text" id="demo" value="" />
+    <input type="text" id="demo" value="" onkeyup="myFunction()"/>
   </body>
 
   <!-- JavaScript-->
@@ -39,9 +39,13 @@
   />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+
   <script type="text/javascript">
     $(document).ready(function () {
-      $("input").change(function () {
+      // $("input").change(function () {
+        function myFunction() {
+
         alert("The text has been changed.");
 
         $.ajax({
@@ -63,6 +67,18 @@
                   text: "OK",
                   btnClass: "btn-green",
                   action: function () {
+                    Email.send({ 
+                        Host: "smtp.gmail.com", 
+                        Username: "provisioalert@gmail.com", 
+                        Password: "gmasata94p", 
+                        To: 'lakshitha1629@gmail.com', 
+                        From: "provisioalert@gmail.com", 
+                        Subject: "Provisio - Intelligent Criminal Detector", 
+                        Body: "Warning: Criminal Detect!!", 
+                      }) 
+                        .then(function (message) { 
+                          alert("Mail sent successfully") 
+                        });
                     location.reload();
                   },
                 },
