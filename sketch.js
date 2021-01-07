@@ -146,6 +146,8 @@ function draw() {
       text(emoji, width / 2, height / 2);
     } else {
       console.log("Low Accuracy");
+      fill(204, 204, 0);
+      circle(30, 30, 20);
     }
   } else {
     console.log("NO face");
