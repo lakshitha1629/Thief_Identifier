@@ -7,7 +7,7 @@ $date = date('Y-m-d H:i:s');
 if (isset($_POST['id'])) {
     $id = $_POST['id'];
 
-    $query = "SELECT * FROM `criminal_profile` WHERE `FullName` LIKE '%'$id'%'";
+    $query = "SELECT * FROM `criminal_profile` WHERE `NIC`='$id'";
     $res = $con->query($query);
 
     if (mysqli_num_rows($res) == 1) {
@@ -20,7 +20,7 @@ if (isset($_POST['id'])) {
         $result = mysqli_query($con, $qry1)
             or die('Error: ' . mysqli_error($con));
 
-        $response = "Thief Detected.<br> <strong style='font-size: 20px;'>Parking Fee Rs " . $FullName . "</strong>";
+        $response = "Thief Detected.<br> <strong style='font-size: 20px;'>" . $FullName . "</strong>";
     } else {
         $response = "Normal Person";
     }

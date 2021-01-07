@@ -120,19 +120,19 @@ function draw() {
 
       if (z == a) {
         emoji = "Lahiru - Thief";
-        x = "Lahiru";
+        x = "905481087V";
       } else if (z == b) {
         emoji = "Kasun - Thief";
-        x = "Kasun";
+        x = "899756410V";
       } else if (z == c) {
         emoji = "Namal - Thief";
-        x = "Namal";
+        x = "864851548V";
       } else if (z == d) {
         emoji = "Nishan - Thief";
-        x = "Nishan";
+        x = "853251078V";
       } else if (z == e) {
         emoji = "Tasil - Thief";
-        x = "Tasil";
+        x = "943201865V";
       } else if (z == no) {
         emoji = "Normal Person";
         x = "";
