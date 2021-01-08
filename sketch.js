@@ -77,7 +77,7 @@ function draw() {
     console.log("detected face");
     console.log(label2);
 
-    if (label2 > 0.9) {
+    if (label2 > 0.5) {
       // STEP 4: Draw the label
       textSize(10);
       textAlign(CENTER, CENTER);
@@ -129,6 +129,7 @@ function draw() {
         x = "864851548V";
       } else if (z == d) {
         emoji = "Normal Person";
+        x = "";
       } else if (z == e) {
         emoji = "Tasil - Thief";
         x = "943201865V";
@@ -140,7 +141,10 @@ function draw() {
       }
 
       // Draw the emoji
+      // if (x != "") {
       document.getElementById("demo").value = x;
+      // }
+
       textSize(50);
       text(emoji, width / 2, height / 2);
     } else {

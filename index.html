@@ -22,10 +22,13 @@
 
   <script type="text/javascript">
     $(document).ready(function () {
-      $("input").change(function () {
-        // $("input").change(function () {
-        alert("The text has been changed.");
+      // $("input").change(function () {
+      // $("input").change(function () {
+      // alert("The text has been changed.");
+      var str = $("#demo").val();
 
+      if (str.length > 0) {
+        // do something
         $.ajax({
           url: "addDb.php",
           type: "post",
@@ -43,15 +46,17 @@
             location.reload();
           },
         });
-      });
+      }
+
+      // });
     });
 
-    // $("#demo").keyup(function () {
-    //   alert($(this).val());
+    // $(document).ready(function () {
+    //   alert("The text has been changed.");
     // });
 
     // $("#demo").change(function () {
-    //   alert($(this).val());
+    //   alert("The text has been changed.");
     // });
   </script>
 </html>
