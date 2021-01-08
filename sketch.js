@@ -116,7 +116,7 @@ function draw() {
 
       let arr = [a, b, c, d, e, no];
       let z = max(arr);
-      var x = "Normal Person";
+      let x = "";
 
       if (z == a) {
         emoji = "Lahiru - Thief";
@@ -128,14 +128,13 @@ function draw() {
         emoji = "Namal - Thief";
         x = "864851548V";
       } else if (z == d) {
-        emoji = "Nishan - Thief";
-        x = "853251078V";
+        emoji = "Normal Person";
       } else if (z == e) {
         emoji = "Tasil - Thief";
         x = "943201865V";
       } else if (z == no) {
-        emoji = "Normal Person";
-        x = "";
+        emoji = "Thisal - Thief";
+        x = "943201865V";
       } else {
         emoji = "Normal Person";
       }

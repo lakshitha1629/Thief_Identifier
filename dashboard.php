@@ -29,7 +29,6 @@ if (!isLoggedIn()) {
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="assets/images/favicon.png" />
-
     <!-- Detector styles -->
     <!-- <script src="p5.js"></script>
     <script src="p5.dom.min.js"></script>
