@@ -93,7 +93,7 @@ function draw() {
       let e = 0;
       let no = 0;
 
-      for (let label1 = 0; label1 < 8000; label1++) {
+      for (let label1 = 0; label1 < 20000; label1++) {
         if (label == "Lahiru") {
           a++;
         } else if (label == "Kasun") {
