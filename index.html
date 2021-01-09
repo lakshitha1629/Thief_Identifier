@@ -15,48 +15,7 @@
       </div>
     </div>
     <!-- <input type="text" id="demo" value="" /> -->
-    <input type="text" id="demo" value="" />
   </body>
 
   <!-- JavaScript-->
-
-  <script type="text/javascript">
-    $(document).ready(function () {
-      // $("input").change(function () {
-      // $("input").change(function () {
-      // alert("The text has been changed.");
-      var str = $("#demo").val();
-
-      if (str.length > 0) {
-        // do something
-        $.ajax({
-          url: "addDb.php",
-          type: "post",
-          dataType: "json",
-          data: {
-            id: $("#demo").val(),
-          },
-          cache: false,
-          success: function (data) {
-            alert("Thief Detected. Mail sent successfully");
-            location.reload();
-          },
-          error: function (data) {
-            alert("Something went downhill, this may be serious");
-            location.reload();
-          },
-        });
-      }
-
-      // });
-    });
-
-    // $(document).ready(function () {
-    //   alert("The text has been changed.");
-    // });
-
-    // $("#demo").change(function () {
-    //   alert("The text has been changed.");
-    // });
-  </script>
 </html>

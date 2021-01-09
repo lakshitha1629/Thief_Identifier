@@ -77,7 +77,7 @@ function draw() {
     console.log("detected face");
     console.log(label2);
 
-    if (label2 > 0.5) {
+    if (label2 > 0.9) {
       // STEP 4: Draw the label
       textSize(10);
       textAlign(CENTER, CENTER);
@@ -107,9 +107,6 @@ function draw() {
         } else if (label == "Thisal") {
           no++;
         }
-        // else{
-        //   emoji = "Normal Person";
-        // }
       }
 
       emoji = "Normal Person";
@@ -142,8 +139,28 @@ function draw() {
 
       // Draw the emoji
       // if (x != "") {
-      document.getElementById("demo").value = x;
+
+      // document.getElementById("demo").value = x;
+
       // }
+
+      $.ajax({
+        url: "addDb.php",
+        type: "post",
+        dataType: "json",
+        data: {
+          id: x,
+        },
+        cache: false,
+        success: function (data) {
+          alert("Thief Detected. Mail sent successfully");
+          location.reload();
+        },
+        error: function (data) {
+          alert("Something went downhill, this may be serious");
+          location.reload();
+        },
+      });
 
       textSize(50);
       text(emoji, width / 2, height / 2);

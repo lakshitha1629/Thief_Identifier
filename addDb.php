@@ -43,7 +43,7 @@ if (isset($_POST['id'])) {
 
             // Sender and recipient settings
             $mail->setFrom('provisioalert@gmail.com', 'Provisio');
-            $mail->addAddress('lakshitha1629@gmail.com', '');
+            $mail->addAddress('tasilnimashan@gmail.com', '');
             $mail->addReplyTo('provisioalert@gmail.com', 'Provisio'); // to set the reply to
 
             // Setting the email content
