@@ -163,11 +163,12 @@ function draw() {
         },
         error: function (data) {
           alert("Something went downhill, this may be serious");
-          location.reload();
+          // location.reload();
         },
       });
 
       textSize(50);
+      fill(255, 171, 0);
       text(emoji, width / 2, height / 2);
     } else {
       console.log("Low Accuracy");
