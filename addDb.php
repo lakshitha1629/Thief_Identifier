@@ -49,7 +49,7 @@ if (isset($_POST['id'])) {
             // Setting the email content
             $mail->IsHTML(true);
             $mail->Subject = "Provisio - Intelligent Criminal Detector";
-            $mail->Body = '<b>Warning:</b> Criminal Detect!!';
+            $mail->Body = '<b>Warning:</b> A Criminal Face Detected. Check your system and do the needful immediately.!!';
             $mail->AltBody = 'Provisio - Intelligent Criminal Detector';
 
             $mail->send();
