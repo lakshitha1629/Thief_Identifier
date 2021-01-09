@@ -118,21 +118,26 @@ function draw() {
       if (z == a) {
         emoji = "Lahiru - Thief";
         x = "905481087V";
+        alert("Thief Detected.--> Lahiru - Thief");
       } else if (z == b) {
         emoji = "Kasun - Thief";
         x = "899756410V";
+        alert("Thief Detected.--> Kasun - Thief");
       } else if (z == c) {
         emoji = "Namal - Thief";
         x = "864851548V";
+        alert("Thief Detected.--> Namal - Thief");
       } else if (z == d) {
         emoji = "Normal Person";
         x = "";
       } else if (z == e) {
         emoji = "Thisal - Thief"; //Thisal - Thief
-        x = "990960810V";
+        x = "943201865V";
+        alert("Thief Detected.--> Thisal - Thief");
       } else if (z == no) {
         emoji = "Tasil - Thief"; //Tasil - Thief
-        x = "943201865V";
+        x = "990960810V";
+        alert("Thief Detected.--> Tasil - Thief");
       } else {
         emoji = "Normal Person";
       }
