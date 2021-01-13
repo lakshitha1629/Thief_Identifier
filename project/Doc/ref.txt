@@ -1,1 +1,0 @@
-https://sefiks.com/2020/02/17/face-recognition-with-facebook-deepface-in-keras/
