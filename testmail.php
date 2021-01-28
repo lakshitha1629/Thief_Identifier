@@ -12,7 +12,7 @@
                     Host: "smtp.gmail.com",
                     Username: "provisioalert@gmail.com",
                     Password: "gmasata94p",
-                    To: "lakshitha1629@gmail.com",
+                    To: "tasilnimashan@gmail.com",
                     From: "provisioalert@gmail.com",
                     Subject: "Provisio - Intelligent Criminal Detector",
                     Body: "Warning: Criminal Detect!!",
