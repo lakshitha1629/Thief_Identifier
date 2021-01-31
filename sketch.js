@@ -77,7 +77,7 @@ function draw() {
     console.log("detected face");
     console.log(label2);
 
-    if (label2 > 0.9) {
+    if (label2 > 0.7) {
       // STEP 4: Draw the label
       textSize(10);
       textAlign(CENTER, CENTER);
@@ -93,7 +93,7 @@ function draw() {
       let e = 0;
       let no = 0;
 
-      for (let label1 = 0; label1 < 20000; label1++) {
+      for (let label1 = 0; label1 < 8000; label1++) {
         if (label == "Lahiru") {
           a++;
         } else if (label == "Kasun") {
@@ -116,32 +116,33 @@ function draw() {
       let x = "";
 
       if (z == a) {
-        emoji = "Lahiru - Thief";
-        x = "905481087V";
-        alert("Thief Detected.--> Lahiru - Thief");
+        emoji = "Lahiru - Kidnapping";
+        x = "854137451V";
+        alert("Provisio Detected.--> Lahiru - Kidnapping");
       } else if (z == b) {
-        emoji = "Kasun - Thief";
-        x = "899756410V";
-        alert("Thief Detected.--> Kasun - Thief");
+        emoji = "Kasun - White-Collar Crime";
+        x = "924871245V";
+        alert("Provisio Detected.--> Kasun - White-Collar Crime");
       } else if (z == c) {
-        emoji = "Namal - Thief";
-        x = "864851548V";
-        alert("Thief Detected.--> Namal - Thief");
+        emoji = "Namal - Rape";
+        x = "834307414V";
+        alert("Provisio Detected.--> Namal - Rape");
       } else if (z == d) {
         emoji = "Normal Person";
         x = "";
       } else if (z == e) {
-        emoji = "Thisal - Thief"; //Thisal - Thief
-        x = "943201865V";
-        alert("Thief Detected.--> Thisal - Thief");
+        emoji = "Thisal - Drug Deal"; //Thisal - Thief
+        x = "804164875V";
+        alert("Provisio Detected.--> Thisal - Drug Deal");
       } else if (z == no) {
-        emoji = "Tasil - Thief"; //Tasil - Thief
-        x = "990960810V";
-        alert("Thief Detected.--> Tasil - Thief");
+        emoji = "Tasil - Murder"; //Tasil - Thief
+        x = "943151033V";
+        alert("Provisio Detected.--> Tasil - Murder");
       } else {
         emoji = "Normal Person";
       }
 
+	  
       // Draw the emoji
       // if (x != "") {
 
